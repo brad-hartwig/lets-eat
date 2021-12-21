@@ -20,9 +20,9 @@ module.exports = {
         "react"
     ],
     "rules": {
-        // "react/react-in-jsx-scope": "off",
         // "react/jsx-uses-react": "off",
+        // "react/react-in-jsx-scope": "off"
         // "react/jsx-no-undef": "off",
-        // "no-extra-semi": "error"
+        "no-extra-semi": "error"
     }
 };
