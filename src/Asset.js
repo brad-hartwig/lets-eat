@@ -23,7 +23,7 @@ const Asset = () => {
     getRecipesData()
   },[])
 
-  const recipesHTML = recipesData.map((recipe, index) => {
+  const recipesHTML = recipesData && recipesData.length>0 && recipesData.map((recipe, index) => {
     return(
       <div key={index} className="col mb-5 card-wrap" data-uuid={recipe.uuid}>
         <div className="card h-100">
