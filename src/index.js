@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import './index.sass';
 import Header from './Header';
+import AssetWrap from './AssetWrap';
 import Footer from './Footer';
 // import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <React.StrictMode>
     <Header />
+    <AssetWrap />
     <Footer />
   </React.StrictMode>,
   document.getElementById('root')
