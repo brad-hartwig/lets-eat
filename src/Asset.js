@@ -1,21 +1,44 @@
-import React,{ useState, useEffect} from 'react';
+import React,{ useState, useEffect } from 'react';
 import './Asset.sass';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+const assignStars = recipe => {
+  if (recipe.rating > 0){
+    const ratingSplit = recipe.rating.toString().split('.');
+    let stars = [],
+        i     = 1,
+        total = 0;
+    // full stars
+    while (i <= ratingSplit[0]){
+      stars.push(<FontAwesomeIcon icon={['fas', 'star']} key={total} />);
+      i++;
+      total++;
+    }
+    // half star
+    if (ratingSplit[1] > 0){
+      stars.push(<FontAwesomeIcon icon={['fas', 'star-half-alt']} key={total} />);
+      total++;
+    }
+    // empty stars
+    while (total < 5){
+      stars.push(<FontAwesomeIcon icon={['far', 'star']} key={total} />);
+      total++;
+    }
+    return <> {recipe.rating}<div className="stars-group" key={total + "-stars-group"}>{stars}</div> ({recipe.ratingVotes}) </>
+  }
+  else{
+    return '';
+  }
+}
 
 const Asset = () => {
   const [recipesData, setRecipesData] = useState([]);
   const getRecipesData = () => {
-    fetch('./recipes.json', {
-      headers : { 
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-    })
-      .then(function(response){
-        console.log(response);
-        return response.json();
+    fetch('./recipes.json')
+      .then(resp => {
+        return resp.json();
       })
-      .then(function(myJson) {
-        console.log(myJson);
+      .then(myJson => {
         setRecipesData(myJson);
       });
   }
@@ -36,9 +59,8 @@ const Asset = () => {
                 {recipe.description}<br/>
               </div>
             </div>
-            {/* Recipe actions */}
             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                <div className="recipe-rating"> + assignStars(recipe) + </div>
+            <div className="recipe-rating">{assignStars(recipe)}</div>
             </div>
         </div>
       </div>

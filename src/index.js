@@ -1,11 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import './index.sass';
 import Header from './Header';
 import AssetWrap from './AssetWrap';
 import Footer from './Footer';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
+
+library.add(fas, far)
 // import reportWebVitals from './reportWebVitals';
+
 ReactDOM.render(
   <React.StrictMode>
     <Header />
