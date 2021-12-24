@@ -24,7 +24,11 @@ const assignStars = recipe => {
       stars.push(<FontAwesomeIcon icon={['far', 'star']} key={total} />);
       total++;
     }
-    return <> {recipe.rating}<div className="stars-group" key={total + "-stars-group"}>{stars}</div> ({recipe.ratingVotes}) </>
+    return(
+      <>
+        {recipe.rating}<div className="stars-group" key={total + "-stars-group"}>{stars}</div> ({recipe.ratingVotes})
+      </>
+    );
   }
   else{
     return '';
@@ -32,7 +36,7 @@ const assignStars = recipe => {
 }
 
 const Asset = () => {
-  const [recipesData, setRecipesData] = useState([]);
+  let [recipesData, setRecipesData] = useState([]);
   const getRecipesData = () => {
     fetch('./recipes.json')
       .then(resp => {
@@ -40,23 +44,27 @@ const Asset = () => {
       })
       .then(myJson => {
         setRecipesData(myJson);
+      })
+      .catch(error => {
+        console.log(error)
       });
   }
   useEffect(() => {
-    getRecipesData()
+    getRecipesData();
   },[])
 
-  const recipesHTML = recipesData && recipesData.length>0 && recipesData.map((recipe, index) => {
+  const recipesHTML = recipesData && recipesData.length > 0 && recipesData.map(recipe => {
+    const {uuid, images:{small}, title, description} = recipe;
     return(
-      <div key={index} className="col mb-5 card-wrap" data-uuid={recipe.uuid}>
+      <div key={uuid} className="col mb-5 card-wrap" data-uuid={uuid}>
         <div className="card h-100">
           <div className="card-img-wrap">
-            <img className="card-img-top" src={recipe.images.small} alt="..." />
+            <img className="card-img-top" src={small} alt="..." />
           </div>
             <div className="card-body p-4">
               <div className="">
-                <h5 className="fw-bolder">{recipe.title}</h5>
-                {recipe.description}<br/>
+                <h5 className="fw-bolder">{title}</h5>
+                {description}<br/>
               </div>
             </div>
             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
