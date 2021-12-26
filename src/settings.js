@@ -1,6 +1,8 @@
-export const settings = [
-  {
-    "jsonPath": "./recipes.json",
-    "assetRatingDisplay": "{display: 'none'}"
+const settings = {
+  jsonPath: "./recipes.json",
+  assetRating: {
+    display: "block"
   }
-]
+}
+
+export default settings

@@ -1,9 +1,7 @@
 import React,{ useState, useEffect } from 'react';
 import './Asset.sass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import AssetContext from './AssetContext';
-// import { AssetContext, settings } from './AssetContext';
-// import { settings } from './settings';
+import settings from './settings';
 
 const assetRating = asset => {
   if (asset.rating > 0){
@@ -41,8 +39,7 @@ const assetRating = asset => {
 const Asset = () => {
   let [assetData, setAssetData] = useState([]);
   const getAssetData = () => {
-    // fetch(settings.jsonPath)
-    fetch('./recipes.json')
+    fetch(settings.jsonPath)
       .then(resp => {
         return resp.json();
       })
@@ -57,42 +54,34 @@ const Asset = () => {
     getAssetData();
   },[]) 
 
-  return(
-    <AssetContext.Consumer>
-      {settings => {
-
-console.log(settings);        
-const assetHTML = assetData && assetData.length > 0 && assetData.map(asset => {
-          const {uuid, images:{small}, title, description} = asset;
-          return(
-            <div key={uuid} className="col mb-5 card-wrap" data-uuid={uuid}>
-              <div className="card h-100">
-                <div className="card-img-wrap">
-                  <img className="card-img-top" src={small} alt="..." />
-                </div>
-                  <div className="card-body p-4">
-                    <div className="">
-                      <h5 className="fw-bolder">{title}</h5>
-                      {description}<br/>
-                    </div>
-                  </div>
-                  <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                  <div className="asset-rating" style={settings.assetRating}>{assetRating(asset)}</div>
-                </div>
+  const assetHTML = assetData.map(asset => {
+    const {uuid, images:{small}, title, description} = asset;
+    return(
+      <div key={uuid} className="col mb-5 card-wrap" data-uuid={uuid}>
+        <div className="card h-100">
+          <div className="card-img-wrap">
+            <img className="card-img-top" src={small} alt="..." />
+          </div>
+            <div className="card-body p-4">
+              <div className="">
+                <h5 className="fw-bolder">{title}</h5>
+                {description}<br/>
               </div>
             </div>
-          )
-        })/*end map*/
+            <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
+            <div className="asset-rating" style={settings.assetRating}>{assetRating(asset)}</div>
+          </div>
+        </div>
+      </div>
+    )
+  })
 
-        return(
-          <>
-            {assetHTML}
-          </>
-        );/*end return*/
+  return(
+    <>
+      {assetHTML}
+    </>
+  );
 
-      }}
-    </AssetContext.Consumer>
-  )
 }
 
 export default Asset;
