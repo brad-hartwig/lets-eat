@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.sass';
 import Header from './Header';
-import AssetWrap from './AssetWrap';
+import Recipes from './Recipes';
 import Footer from './Footer';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
@@ -14,7 +14,7 @@ library.add(fas, far)
 ReactDOM.render(
   <React.StrictMode>
     <Header />
-    <AssetWrap />
+    <Recipes />
     <Footer />
   </React.StrictMode>,
   document.getElementById('root')

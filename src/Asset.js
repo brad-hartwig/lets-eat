@@ -1,10 +1,13 @@
 import React,{ useState, useEffect } from 'react';
 import './Asset.sass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import AssetContext from './AssetContext';
+// import { AssetContext, settings } from './AssetContext';
+// import { settings } from './settings';
 
-const assignStars = recipe => {
-  if (recipe.rating > 0){
-    const ratingSplit = recipe.rating.toString().split('.');
+const assetRating = asset => {
+  if (asset.rating > 0){
+    const ratingSplit = asset.rating.toString().split('.');
     let stars = [],
         i     = 1,
         total = 0;
@@ -26,7 +29,7 @@ const assignStars = recipe => {
     }
     return(
       <>
-        {recipe.rating}<div className="stars-group" key={total + "-stars-group"}>{stars}</div> ({recipe.ratingVotes})
+        {asset.rating}<div className="stars-group" key={total + "-stars-group"}>{stars}</div> ({asset.ratingVotes})
       </>
     );
   }
@@ -36,50 +39,60 @@ const assignStars = recipe => {
 }
 
 const Asset = () => {
-  let [recipesData, setRecipesData] = useState([]);
-  const getRecipesData = () => {
+  let [assetData, setAssetData] = useState([]);
+  const getAssetData = () => {
+    // fetch(settings.jsonPath)
     fetch('./recipes.json')
       .then(resp => {
         return resp.json();
       })
       .then(myJson => {
-        setRecipesData(myJson);
+        setAssetData(myJson);
       })
       .catch(error => {
         console.log(error)
       });
   }
   useEffect(() => {
-    getRecipesData();
-  },[])
-
-  const recipesHTML = recipesData && recipesData.length > 0 && recipesData.map(recipe => {
-    const {uuid, images:{small}, title, description} = recipe;
-    return(
-      <div key={uuid} className="col mb-5 card-wrap" data-uuid={uuid}>
-        <div className="card h-100">
-          <div className="card-img-wrap">
-            <img className="card-img-top" src={small} alt="..." />
-          </div>
-            <div className="card-body p-4">
-              <div className="">
-                <h5 className="fw-bolder">{title}</h5>
-                {description}<br/>
-              </div>
-            </div>
-            <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-            <div className="recipe-rating">{assignStars(recipe)}</div>
-            </div>
-        </div>
-      </div>
-    )
-  })
+    getAssetData();
+  },[]) 
 
   return(
-    <>
-      {recipesHTML}
-    </>
-  );
+    <AssetContext.Consumer>
+      {settings => {
+
+console.log(settings);        
+const assetHTML = assetData && assetData.length > 0 && assetData.map(asset => {
+          const {uuid, images:{small}, title, description} = asset;
+          return(
+            <div key={uuid} className="col mb-5 card-wrap" data-uuid={uuid}>
+              <div className="card h-100">
+                <div className="card-img-wrap">
+                  <img className="card-img-top" src={small} alt="..." />
+                </div>
+                  <div className="card-body p-4">
+                    <div className="">
+                      <h5 className="fw-bolder">{title}</h5>
+                      {description}<br/>
+                    </div>
+                  </div>
+                  <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                  <div className="asset-rating" style={settings.assetRatingDisplay}>{assetRating(asset)}</div>
+                </div>
+              </div>
+            </div>
+          )
+        })/*end map*/
+
+        return(
+          <>
+            {assetHTML}
+          </>
+        );/*end return*/
+
+      }}
+    </AssetContext.Consumer>
+  )
 }
- 
+
 export default Asset;
