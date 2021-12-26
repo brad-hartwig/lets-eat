@@ -8,7 +8,7 @@ import AssetContext from './AssetContext';
 const Recipes = () => {
   const settings = {
     jsonPath: './recipes.json',
-    assetRatingDisplay: {display: 'block'}
+    assetRating: {display: 'block'}
   }
   return(
     <AssetContext.Provider value={settings}>

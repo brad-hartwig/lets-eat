@@ -77,7 +77,7 @@ const assetHTML = assetData && assetData.length > 0 && assetData.map(asset => {
                     </div>
                   </div>
                   <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                  <div className="asset-rating" style={settings.assetRatingDisplay}>{assetRating(asset)}</div>
+                  <div className="asset-rating" style={settings.assetRating}>{assetRating(asset)}</div>
                 </div>
               </div>
             </div>
