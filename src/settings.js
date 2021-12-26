@@ -1,7 +1,9 @@
 const settings = {
-  jsonPath: "./recipes.json",
-  assetRating: {
-    display: "block"
+  Recipes: {
+    jsonPath: "./recipes.json",
+    assetRating: {
+      display: 'block'
+    }
   }
 }
 

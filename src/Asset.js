@@ -1,7 +1,7 @@
 import React,{ useState, useEffect } from 'react';
 import './Asset.sass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import settings from './settings';
+import settingsContext from './settingsContext';
 
 const assetRating = asset => {
   if (asset.rating > 0){
@@ -37,9 +37,10 @@ const assetRating = asset => {
 }
 
 const Asset = () => {
+  let hookSettings;
   let [assetData, setAssetData] = useState([]);
   const getAssetData = () => {
-    fetch(settings.jsonPath)
+    fetch(hookSettings.jsonPath)
       .then(resp => {
         return resp.json();
       })
@@ -54,34 +55,42 @@ const Asset = () => {
     getAssetData();
   },[]) 
 
-  const assetHTML = assetData.map(asset => {
-    const {uuid, images:{small}, title, description} = asset;
-    return(
-      <div key={uuid} className="col mb-5 card-wrap" data-uuid={uuid}>
-        <div className="card h-100">
-          <div className="card-img-wrap">
-            <img className="card-img-top" src={small} alt="..." />
-          </div>
-            <div className="card-body p-4">
-              <div className="">
-                <h5 className="fw-bolder">{title}</h5>
-                {description}<br/>
+  return(
+    <settingsContext.Consumer>
+      {settings => {
+        hookSettings = settings;
+  
+        const assetHTML = assetData && assetData.length > 0 && assetData.map(asset => {
+          const {uuid, images:{small}, title, description} = asset;
+          return(
+            <div key={uuid} className="col mb-5 card-wrap" data-uuid={uuid}>
+              <div className="card h-100">
+                <div className="card-img-wrap">
+                  <img className="card-img-top" src={small} alt="..." />
+                </div>
+                  <div className="card-body p-4">
+                    <div className="">
+                      <h5 className="fw-bolder">{title}</h5>
+                      {description}<br/>
+                    </div>
+                  </div>
+                  <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                  <div className="asset-rating" style={settings.assetRating}>{assetRating(asset)}</div>
+                </div>
               </div>
             </div>
-            <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-            <div className="asset-rating" style={settings.assetRating}>{assetRating(asset)}</div>
-          </div>
-        </div>
-      </div>
-    )
-  })
+          )
+        })
 
-  return(
-    <>
-      {assetHTML}
-    </>
-  );
+        return(
+          <>
+            {assetHTML}
+          </>
+        );
 
+      }}
+    </settingsContext.Consumer>
+  )
 }
 
 export default Asset;
