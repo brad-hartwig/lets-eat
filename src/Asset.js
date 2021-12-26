@@ -1,9 +1,7 @@
 import React,{ useState, useEffect } from 'react';
 import './Asset.sass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import AssetContext from './AssetContext';
-// import { AssetContext, settings } from './AssetContext';
-// import { settings } from './settings';
+import settingsContext from './settingsContext';
 
 const assetRating = asset => {
   if (asset.rating > 0){
@@ -39,10 +37,10 @@ const assetRating = asset => {
 }
 
 const Asset = () => {
+  let hookSettings;
   let [assetData, setAssetData] = useState([]);
   const getAssetData = () => {
-    // fetch(settings.jsonPath)
-    fetch('./recipes.json')
+    fetch(hookSettings.jsonPath)
       .then(resp => {
         return resp.json();
       })
@@ -58,11 +56,11 @@ const Asset = () => {
   },[]) 
 
   return(
-    <AssetContext.Consumer>
+    <settingsContext.Consumer>
       {settings => {
-
-console.log(settings);        
-const assetHTML = assetData && assetData.length > 0 && assetData.map(asset => {
+        hookSettings = settings;
+  
+        const assetHTML = assetData && assetData.length > 0 && assetData.map(asset => {
           const {uuid, images:{small}, title, description} = asset;
           return(
             <div key={uuid} className="col mb-5 card-wrap" data-uuid={uuid}>
@@ -82,16 +80,16 @@ const assetHTML = assetData && assetData.length > 0 && assetData.map(asset => {
               </div>
             </div>
           )
-        })/*end map*/
+        })
 
         return(
           <>
             {assetHTML}
           </>
-        );/*end return*/
+        );
 
       }}
-    </AssetContext.Consumer>
+    </settingsContext.Consumer>
   )
 }
 

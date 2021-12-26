@@ -1,19 +1,13 @@
 import React from 'react';
 import AssetWrap from './AssetWrap';
-import AssetContext from './AssetContext';
-// import { AssetContext, settings } from './AssetContext';
-// import { settings } from './settings';
-// const AssetContext = React.createContext({});
+import settings from './settings';
+import settingsContext from './settingsContext';
 
 const Recipes = () => {
-  const settings = {
-    jsonPath: './recipes.json',
-    assetRating: {display: 'block'}
-  }
   return(
-    <AssetContext.Provider value={settings}>
+    <settingsContext.Provider value={settings.Recipes}>
       <AssetWrap />
-    </AssetContext.Provider>
+    </settingsContext.Provider>
   )
 }
 
