@@ -26,19 +26,17 @@ const assetRating = asset => {
       stars.push(<FontAwesomeIcon icon={['far', 'star']} key={total} />);
       total++;
     }
-    const starsHTML = stars.map((item, index) => {
+    const starsHTML = stars.map((star, index) => {
       return(
-        <span key={index + "-stars-group"}>{item}</span>
+        <li key={index}>{star}</li>
       )
     })
     return(
-      <div>
-        {asset.rating}<div className="stars-group">
-          <>
-            {starsHTML}
-          </>
-        </div>({asset.ratingVotes})
-      </div>
+      <>
+        <li>{asset.rating}</li>
+          {starsHTML}
+        <li>({asset.ratingVotes})</li>
+      </>
     )
   }
   else{
@@ -68,7 +66,9 @@ const Asset = () => {
                   </div>
                 </div>
                 <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                  <div className="asset-rating" style={pageSettings.assetRating}>{assetRating(asset)}</div>
+                  <ul className="asset-rating" style={pageSettings.assetRating}>
+                    {assetRating(asset)}
+                  </ul>
                 </div>
               </div>
             </div>
