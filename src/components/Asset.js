@@ -1,5 +1,4 @@
 import React from 'react';
-// import React,{ useState, useEffect } from 'react';
 import 'styles/Asset.sass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import dataContext from 'utils/dataContext';

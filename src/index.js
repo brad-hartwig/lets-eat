@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'styles/index.sass';
-import Header from 'components/Header';
-import Recipes from 'components/Recipes';
-import Footer from 'components/Footer';
+import Recipes from 'pages/Recipes';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
@@ -13,9 +11,7 @@ library.add(fas, far)
 
 ReactDOM.render(
   <React.StrictMode>
-    <Header />
     <Recipes />
-    <Footer />
   </React.StrictMode>,
   document.getElementById('root')
 );
