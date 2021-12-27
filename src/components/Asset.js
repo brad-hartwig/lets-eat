@@ -1,7 +1,8 @@
-import React,{ useState, useEffect } from 'react';
-import './Asset.sass';
+import React from 'react';
+// import React,{ useState, useEffect } from 'react';
+import '../styles/Asset.sass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import settingsContext from './settingsContext';
+import dataContext from '../api/dataContext';
 
 const assetRating = asset => {
   if (asset.rating > 0){
@@ -25,11 +26,20 @@ const assetRating = asset => {
       stars.push(<FontAwesomeIcon icon={['far', 'star']} key={total} />);
       total++;
     }
+    const starsHTML = stars.map((item, index) => {
+      return(
+        <span key={index + "-stars-group"}>{item}</span>
+      )
+    })
     return(
-      <>
-        {asset.rating}<div className="stars-group" key={total + "-stars-group"}>{stars}</div> ({asset.ratingVotes})
-      </>
-    );
+      <div>
+        {asset.rating}<div className="stars-group">
+          <>
+            {starsHTML}
+          </>
+        </div>({asset.ratingVotes})
+      </div>
+    )
   }
   else{
     return '';
@@ -37,28 +47,11 @@ const assetRating = asset => {
 }
 
 const Asset = () => {
-  let hookSettings;
-  let [assetData, setAssetData] = useState([]);
-  const getAssetData = () => {
-    fetch(hookSettings.jsonPath)
-      .then(resp => {
-        return resp.json();
-      })
-      .then(myJson => {
-        setAssetData(myJson);
-      })
-      .catch(error => {
-        console.log(error)
-      });
-  }
-  useEffect(() => {
-    getAssetData();
-  },[]) 
-
   return(
-    <settingsContext.Consumer>
-      {settings => {
-        hookSettings = settings;
+    <dataContext.Consumer>
+      {dataObj => {
+        const assetData = dataObj.assetData,
+              pageSettings  = dataObj.pageSettings;
   
         const assetHTML = assetData && assetData.length > 0 && assetData.map(asset => {
           const {uuid, images:{small}, title, description} = asset;
@@ -68,14 +61,14 @@ const Asset = () => {
                 <div className="card-img-wrap">
                   <img className="card-img-top" src={small} alt="..." />
                 </div>
-                  <div className="card-body p-4">
-                    <div className="">
-                      <h5 className="fw-bolder">{title}</h5>
-                      {description}<br/>
-                    </div>
+                <div className="card-body p-4">
+                  <div className="">
+                    <h5 className="fw-bolder">{title}</h5>
+                    {description}
                   </div>
-                  <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                  <div className="asset-rating" style={settings.assetRating}>{assetRating(asset)}</div>
+                </div>
+                <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                  <div className="asset-rating" style={pageSettings.assetRating}>{assetRating(asset)}</div>
                 </div>
               </div>
             </div>
@@ -89,7 +82,7 @@ const Asset = () => {
         );
 
       }}
-    </settingsContext.Consumer>
+    </dataContext.Consumer>
   )
 }
 

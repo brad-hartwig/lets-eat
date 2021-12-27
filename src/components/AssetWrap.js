@@ -1,5 +1,5 @@
 import React from 'react';
-import './AssetWrap.sass';
+import '../styles/AssetWrap.sass';
 import Asset from './Asset';
 
 const AssetWrap = () => {
