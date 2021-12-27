@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/index.sass';
-import Header from './components/Header';
-import Recipes from './components/Recipes';
-import Footer from './components/Footer';
+import 'styles/index.sass';
+import Header from 'components/Header';
+import Recipes from 'components/Recipes';
+import Footer from 'components/Footer';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'

@@ -2,7 +2,7 @@
   "Global": {
   },
   "Recipes": {
-      "jsonPath": "../data/recipes.json",
+      "jsonPath": "data/recipes.json",
     "assetRating": {
       "display": "block"
     }
