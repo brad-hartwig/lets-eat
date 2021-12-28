@@ -1,9 +1,15 @@
 import React from 'react';
 import 'styles/Header.sass';
+import pizzaHeader from 'assets/pizzaHeader.png';
+
+const pizzaStyle = {
+  backgroundImage: `url(${pizzaHeader})`,
+  backgroundRepeat: 'no-repeat',
+};
 
 const Header = () => {
   return (
-    <header className='bg-dark py-1'>
+    <header className='bg-dark py-1' style={pizzaStyle}>
       <div className='container px-4 px-lg-5 my-4'>
         <div className='text-center text-black'>
           <h1 className='display-4 fw-bolder header-title'>Let&rsquo;s Eat!</h1>
