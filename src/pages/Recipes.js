@@ -7,16 +7,16 @@ import settings from 'data/settings.json';
 import dataContext from 'utils/dataContext';
 
 const globalSettings = settings.Global,
-      pageSettings = settings.Recipes
+  pageSettings = settings.Recipes;
 
 const Recipes = () => {
-  return(
+  return (
     <dataContext.Provider value={{ assetData, pageSettings, globalSettings }}>
       <Header />
       <AssetWrap />
       <Footer />
     </dataContext.Provider>
-    )
-}
+  );
+};
 
 export default Recipes;
