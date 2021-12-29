@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/lets-eat/static/css/main.9ae7ac3c.css",
+    "main.js": "/lets-eat/static/js/main.0effefa2.js",
+    "static/media/queso_brat_scramble.jpg": "/lets-eat/static/media/queso_brat_scramble.220f7f496958af9259ea.jpg",
+    "static/media/brussel_chips.jpg": "/lets-eat/static/media/brussel_chips.ddd353ca469e8054447d.jpg",
+    "static/media/pancake_mountain.jpg": "/lets-eat/static/media/pancake_mountain.4b69d03ce8c086c84dbf.jpg",
+    "static/media/kielbasa_skillet.jpg": "/lets-eat/static/media/kielbasa_skillet.e32b4dfc05201dab226d.jpg",
+    "static/media/italian_meatballs.jpg": "/lets-eat/static/media/italian_meatballs.9fac815963e5cfa51042.jpg",
+    "static/media/pizzaHeader.png": "/lets-eat/static/media/pizzaHeader.5f89ac5088dd4fa8e000.png",
+    "static/media/kielbasa_skillet_m.jpg": "/lets-eat/static/media/kielbasa_skillet_m.85f64d087484264217ca.jpg",
+    "static/media/queso_brat_scramble_m.jpg": "/lets-eat/static/media/queso_brat_scramble_m.4351da5cd19df8c477bc.jpg",
+    "static/media/pancake_mountain_m.jpg": "/lets-eat/static/media/pancake_mountain_m.239183389cd9b6844eae.jpg",
+    "static/media/italian_meatballs_m.jpg": "/lets-eat/static/media/italian_meatballs_m.e515c49e87129367dd28.jpg",
+    "static/media/brussel_chips_m.jpg": "/lets-eat/static/media/brussel_chips_m.3df8d1b3c20d98d50a67.jpg",
+    "static/media/kielbasa_skillet_s.jpg": "/lets-eat/static/media/kielbasa_skillet_s.0f58ad28c71229a1fe4b.jpg",
+    "index.html": "/lets-eat/index.html",
+    "main.9ae7ac3c.css.map": "/lets-eat/static/css/main.9ae7ac3c.css.map",
+    "main.0effefa2.js.map": "/lets-eat/static/js/main.0effefa2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9ae7ac3c.css",
+    "static/js/main.0effefa2.js"
+  ]
+}
