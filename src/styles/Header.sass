@@ -5,28 +5,38 @@ header
 
 header.bg-dark
   background-color: #afde87 !important
-  background-position: -513px -513px
 
+// {xs}
+@media screen and (min-width: 0px)
+  header.bg-dark
+    background-size: 312px 312px
+    background-position: -513px -513px
+
+// {sm}
 @media screen and (min-width: 576px)
   header.bg-dark
     background-size: 312px 312px
     background-position: -140px -140px
 
+// {md}
 @media screen and (min-width: 768px)
   header.bg-dark
     background-size: 412px 412px
     background-position: -120px -230px
 
+// {lg}
 @media screen and (min-width: 992px)
   header.bg-dark
     background-size: 512px 512px
     background-position: -140px -310px
 
+// {xl}
 @media screen and (min-width: 1200px)
   header.bg-dark
     background-size: 512px 512px
-    background-position: -80px -210px
+    background-position: -30px -210px
 
+// {xxl}
 @media screen and (min-width: 1400px)
   header.bg-dark
     background-size: 512px 512px
