@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 
 const AssetWrap = () => {
   return (
-    <Container className='mt-5' style={{marginBottom: '4rem'}}>
+    <Container className='mt-5' style={{marginBottom: '4.5rem'}}>
       <Row>
         <Asset />
       </Row>
