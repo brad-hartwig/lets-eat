@@ -2,8 +2,10 @@ import React from 'react';
 import 'styles/Asset.sass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import dataContext from 'utils/dataContext';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
 
-const assetRating = asset => {
+const assetRating = (asset, footerDisplay) => {
   if (asset.rating > 0) {
     const ratingSplit = asset.rating.toString().split('.');
     let stars = [],
@@ -29,11 +31,13 @@ const assetRating = asset => {
       return <li key={index}>{star}</li>;
     });
     return (
-      <>
-        <li>{asset.rating}</li>
-        {starsHTML}
-        <li>({asset.ratingVotes})</li>
-      </>
+      <Card.Footer style={footerDisplay}>
+        <ul className='asset-rating'>
+          <li>{asset.rating}</li>
+          {starsHTML}
+          <li>({asset.ratingVotes})</li>
+        </ul>
+      </Card.Footer>
     );
   } else {
     return '';
@@ -58,24 +62,16 @@ const Asset = () => {
               description,
             } = asset;
             return (
-              <div key={uuid} className='col mb-5 card-wrap' data-uuid={uuid}>
-                <div className='card h-100'>
-                  <div className='card-img-wrap'>
-                    <img className='card-img-top' src={small} alt='...' />
-                  </div>
-                  <div className='card-body p-4'>
-                    <div className=''>
-                      <h5 className='fw-bolder'>{title}</h5>
-                      {description}
-                    </div>
-                  </div>
-                  <div className='card-footer p-4 pt-0 border-top-0 bg-transparent'>
-                    <ul className='asset-rating' style={pageSettings.assetRating}>
-                      {assetRating(asset)}
-                    </ul>
-                  </div>
-                </div>
-              </div>
+              <Col className='pb-5' sm={6} md={4} lg={3} xl={3} xxl={2} key={uuid}>
+                <Card className='h-100' data-uuid={uuid}>
+                  <Card.Img variant='top' src={small} />
+                  <Card.Body>
+                    <Card.Title>{title}</Card.Title>
+                    <Card.Text>{description}</Card.Text>
+                  </Card.Body>
+                  {assetRating(asset, pageSettings.footerDisplay)}
+                </Card>
+              </Col>
             );
           });
 

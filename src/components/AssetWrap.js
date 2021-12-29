@@ -1,16 +1,16 @@
 import React from 'react';
 import 'styles/AssetWrap.sass';
 import Asset from 'components/Asset';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
 const AssetWrap = () => {
   return (
-    <section className='py-5'>
-      <div className='container px-4 px-lg-5 mt-5'>
-        <div className='row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 recipe-cards'>
-          <Asset />
-        </div>
-      </div>
-    </section>
+    <Container className='mt-5'>
+      <Row>
+        <Asset />
+      </Row>
+    </Container>
   );
 };
 
