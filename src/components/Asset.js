@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import dataContext from 'utils/dataContext';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import Images from 'data/images.js';
+
 
 const assetRating = (asset, footerDisplay) => {
   if (asset.rating > 0) {
@@ -61,10 +63,11 @@ const Asset = () => {
               title,
               description,
             } = asset;
+            console.log(small);
             return (
               <Col className='mb-4' xs={4} sm={6} md={4} lg={3} xl={3} xxl={2} key={uuid}>
                 <Card className='h-100' data-uuid={uuid}>
-                  <Card.Img variant='top' src={small} />
+                <Card.Img variant='top' src={Images[small]} />
                   <Card.Body>
                     <Card.Title>{title}</Card.Title>
                     <Card.Text>{description}</Card.Text>
