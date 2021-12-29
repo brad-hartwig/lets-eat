@@ -62,7 +62,7 @@ const Asset = () => {
               description,
             } = asset;
             return (
-              <Col className='pb-5' sm={6} md={4} lg={3} xl={3} xxl={2} key={uuid}>
+              <Col className='pb-3' xs={4} sm={6} md={4} lg={3} xl={3} xxl={2} key={uuid}>
                 <Card className='h-100' data-uuid={uuid}>
                   <Card.Img variant='top' src={small} />
                   <Card.Body>
