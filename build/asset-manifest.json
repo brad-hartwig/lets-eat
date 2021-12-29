@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/lets-eat/static/css/main.91cebcc5.css",
+    "main.js": "/lets-eat/static/js/main.39471938.js",
+    "static/media/pizzaHeader.png": "/lets-eat/static/media/pizzaHeader.5f89ac5088dd4fa8e000.png",
+    "index.html": "/lets-eat/index.html",
+    "main.91cebcc5.css.map": "/lets-eat/static/css/main.91cebcc5.css.map",
+    "main.39471938.js.map": "/lets-eat/static/js/main.39471938.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.91cebcc5.css",
+    "static/js/main.39471938.js"
+  ]
+}
