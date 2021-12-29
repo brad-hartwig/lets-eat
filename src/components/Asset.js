@@ -63,7 +63,6 @@ const Asset = () => {
               title,
               description,
             } = asset;
-            console.log(small);
             return (
               <Col className='mb-4' xs={6} sm={6} md={4} lg={3} xl={3} xxl={2} key={uuid}>
                 <Card className='h-100' data-uuid={uuid}>
