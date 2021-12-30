@@ -10,10 +10,10 @@ const pizzaStyle = {
 const Header = () => {
   return (
     <header className='bg-dark py-1' style={pizzaStyle}>
-      <div className='container px-4 px-lg-5 my-4'>
+      <div className='container my-1'>
         <div className='text-center text-black'>
-          <h1 className='display-4 fw-bolder header-title'>Let&rsquo;s Eat!</h1>
-          <p className='lead fw-normal text-black-50 mb-0'>让我们吃 &#8226; Comamos &#8226; चलो खाते हैं &#8226; Давайте есть &#8226; Mangeons &#8226; Mangiamo</p>
+          <h1 className='header-title display-4 fw-bolder mb-0'>Let&rsquo;s Eat!</h1>
+          <p className='header-subtitle lead fw-normal text-black-50 mb-0'>让我们吃 &#8226; Comamos &#8226; चलो खाते हैं &#8226; Давайте есть &#8226; Mangeons &#8226; Mangiamo</p>
         </div>
       </div>
     </header>
