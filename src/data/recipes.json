@@ -3,6 +3,7 @@
       "uuid": "e80ea521-4d42-48fe-a7a6-ac8952bc0de4",
       "title": "Queso Brat Scramble",
       "description": "A delicious breakfast, fit for a crowd.",
+      "category": "breakfast",
       "images": {
         "full": "queso_brat_scramble",
         "medium": "queso_brat_scramble_m",
@@ -154,6 +155,7 @@
       "uuid": "7f8e872d-47a5-44e6-b1ad-7b7cb94f1d30",
       "title": "Italian Meatballs",
       "description": "Quick, easy and authentic.",
+      "category": "dinner",
       "images": {
         "full": "italian_meatballs",
         "medium": "italian_meatballs_m",
@@ -235,6 +237,7 @@
       "uuid": "3555aec3-47e1-44d4-b8f2-607aad5cee67",
       "title": "Kielbasa Skillet",
       "description": "A polish delicacy.",
+      "category": "lunch,dinner",
       "images": {
         "full": "kielbasa_skillet",
         "medium": "kielbasa_skillet_m",
@@ -326,6 +329,7 @@
       "uuid": "3555aec3-47e1-44d4-b8f2-607aad5cee69",
       "title": "Brussel Chips",
       "description": "Tasty, crispy, spicy and healthy!",
+      "category": "lunch,dinner",
       "images": {
         "full": "brussel_chips",
         "medium": "brussel_chips_m",
@@ -401,6 +405,7 @@
       "uuid": "f8fc88dc-2f89-43fa-b431-00d90eeba521",
       "title": "Pancake Mountain",
       "description": "A giant stack of pancakes to share or to horde.",
+      "category": "breakfast",
       "images": {
         "full": "pancake_mountain",
         "medium": "pancake_mountain_m",
@@ -494,6 +499,7 @@
       "uuid": "1DUPE",
       "title": "Pancake Mountain",
       "description": "A giant stack of pancakes to share or to horde.",
+      "category": "breakfast",
       "images": {
         "full": "pancake_mountain",
         "medium": "pancake_mountain_m",
@@ -587,6 +593,7 @@
       "uuid": "2DUPE",
       "title": "Pancake Mountain",
       "description": "A giant stack of pancakes to share or to horde.",
+      "category": "breakfast",
       "images": {
         "full": "pancake_mountain",
         "medium": "pancake_mountain_m",

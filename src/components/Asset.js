@@ -51,7 +51,8 @@ const Asset = () => {
     <dataContext.Consumer>
       {dataObj => {
         const assetData = dataObj.assetData,
-          pageSettings = dataObj.pageSettings;
+          pageSettings = dataObj.pageSettings,
+          keywordObj = dataObj.keywordObj;
 
         const assetHTML =
           assetData &&
@@ -63,18 +64,22 @@ const Asset = () => {
               title,
               description,
             } = asset;
-            return (
-              <Col className='mb-4' xs={6} sm={6} md={4} lg={3} xl={3} xxl={2} key={uuid}>
-                <Card className='h-100' data-uuid={uuid}>
-                <Card.Img variant='top' src={Images[small]} />
-                  <Card.Body>
-                    <Card.Title>{title}</Card.Title>
-                    <Card.Text>{description}</Card.Text>
-                  </Card.Body>
-                  {assetRating(asset, pageSettings.footerDisplay)}
-                </Card>
-              </Col>
-            );
+
+            // pass the keywordObj as a state in Link tag or from a keyword search
+            if (asset.category.includes(keywordObj.keyword)){
+              return (
+                <Col className='mb-4' xs={6} sm={6} md={4} lg={3} xl={3} xxl={2} key={uuid}>
+                  <Card className='h-100' data-uuid={uuid}>
+                  <Card.Img variant='top' src={Images[small]} />
+                    <Card.Body>
+                      <Card.Title>{title}</Card.Title>
+                      <Card.Text>{description}</Card.Text>
+                    </Card.Body>
+                    {assetRating(asset, pageSettings.footerDisplay)}
+                  </Card>
+                </Col>
+              );
+            }
           });
 
         return <>{assetHTML}</>;

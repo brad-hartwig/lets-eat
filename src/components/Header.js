@@ -9,7 +9,7 @@ const pizzaStyle = {
 
 const Header = () => {
   return (
-    <header className='bg-dark py-1' style={pizzaStyle}>
+    <header className='bg-dark py-1 mb-4' style={pizzaStyle}>
       <div className='container my-1'>
         <div className='text-center text-black'>
           <h1 className='header-title display-4 fw-bolder mb-0'>Let&rsquo;s Eat!</h1>

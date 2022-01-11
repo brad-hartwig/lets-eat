@@ -13,6 +13,10 @@ import pancake_mountain_s from 'assets/pancake_mountain_s.jpg';
 import queso_brat_scramble from 'assets/queso_brat_scramble.jpg';
 import queso_brat_scramble_m from 'assets/queso_brat_scramble_m.jpg';
 import queso_brat_scramble_s from 'assets/queso_brat_scramble_s.jpg';
+import breakfast from 'assets/breakfast.jpg';
+import lunch from 'assets/lunch.jpg';
+import dinner from 'assets/dinner.jpg';
+import snack from 'assets/snack.jpg';
 
 export default{
   brussel_chips,
@@ -30,4 +34,8 @@ export default{
   queso_brat_scramble,
   queso_brat_scramble_m,
   queso_brat_scramble_s,
+  breakfast,
+  lunch,
+  dinner,
+  snack
 };
