@@ -1,0 +1,10 @@
+{
+  "Global": {
+  },
+  "Recipes": {
+    "jsonPath": "data/recipes.json",
+    "footerDisplay": {
+      "display": "block"
+    }
+  }
+}
