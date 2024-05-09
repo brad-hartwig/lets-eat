@@ -42,7 +42,7 @@ const Index = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<Home />} />
+        <Route path='/lets-eat/' index element={<Home />} />
         <Route path='recipes' element={<Recipes />} />
         <Route path='futurepage' element={<FuturePage />} />
       </Routes>
