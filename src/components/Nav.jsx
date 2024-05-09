@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '/src/scss/Nav.sass';
 import Container from 'react-bootstrap/Container';
@@ -8,9 +8,6 @@ import Images from '/src/data/images.js';
 
 const Nav = () => {
   const [activeNavBtn, setActiveNavBtn] = useState(sessionStorage.getItem('activeNavBtn'));
-
-  // useEffect is used as a callback to setActiveNavBtn
-  useEffect(() => {}, [activeNavBtn]);
 
   const btnHandler = index => {
     sessionStorage.setItem('activeNavBtn', index);
